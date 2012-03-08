@@ -1,0 +1,1 @@
+<p>&copy; $SiteConfig.Title | Sunrise Theme by <a href="http://www.gpmd.co.uk/" title="GPMD - Award Winning Website Architects">GPMD</a> | Powered by <a href="http://www.silverstripe.org/" title="This site runs on the SilverStripe CMS">Silverstripe Open Source CMS</a></p>

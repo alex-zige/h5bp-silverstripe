@@ -1,0 +1,40 @@
+/* 320 and Up _________________________________________________
+
+Sunrise SilverStripe 3 CMS theme
+Matt Bailey, GPMD http://www.gpmd.co.uk/
+LESS Version: 1.0.0
+URL: http://www.gpmd.co.uk/
+License: http://www.silverstripe.org/bsd-license/
+
+Based on:
+
+320 and Up
+Andy Clarke http://about.me/malarkey
+LESS Version: 2
+URL: http://stuffandnonsense.co.uk/projects/320andup/
+License: http://creativecommons.org/licenses/MIT/
+
+Includes:
+
+__________________________________________________________ */
+.sans-serif {
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+}
+.serif {
+  font-family: Georgia, Times, "Times New Roman", serif;
+}
+.monospace {
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {
+  clear: both;
+}

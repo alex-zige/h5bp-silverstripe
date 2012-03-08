@@ -1,0 +1,1732 @@
+/* _________________________________________________
+
+Sunrise SilverStripe 3 CMS theme
+Matt Bailey, GPMD http://www.gpmd.co.uk/
+Version: 1.0.0
+URL: http://www.gpmd.co.uk/
+License: http://www.silverstripe.org/bsd-license/
+
+Based on:
+
+320 and Up boilerplate extension
+Andy Clarke http://about.me/malarkey
+Version: 2
+URL: http://stuffandnonsense.co.uk/projects/320andup/
+License: http://creativecommons.org/licenses/MIT/
+_____________________________________________________
+
+1 ROOT
+2 HEADINGS
+3 TYPOGRAPHY
+4 LINKS
+5 FIGURES & IMAGES
+6 TABLES
+7 FORMS
+8 BANNER
+9 NAVIGATION
+10 CONTENT
+11 MAIN
+12 COMPLEMENTARY
+13 CONTENTINFO
+14 GLOBAL OBJECTS
+15 VENDOR-SPECIFIC
+16 MODERNIZR
+17 TEMPLATE SPECIFICS
+18 MEDIA QUERIES
+
+*/
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 100%;
+	line-height: 1;
+	font-family: inherit;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+	display: block;
+}
+
+audio[controls], canvas, video {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+// Imports
+@import "mixins";
+
+// 1. ROOT =============================================================================
+
+html {
+	overflow-y: scroll;
+	background-color: @white;
+	font-size: 62.5%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	.font-size();
+	.sans-serif();
+	color: @darkergrey;
+	background: url(../img/bg-body.gif) repeat;
+}
+
+button,
+input,
+select,
+textarea {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: @darkgrey;
+}
+
+// 2. HEADINGS (320 and Up typography defaults) ====================================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	.serif;
+	color: @black;
+	.text-shadow-white(0, 1px, 0, 1.0);
+}
+
+h1 {
+	margin-bottom: @baseline / 2;
+	.font-size(48);
+	line-height: 1.2;
+}
+
+h2 {
+	margin-bottom: @baseline / 2;
+	.font-size(32);
+	line-height: 1.2;
+}
+
+h3 {
+	margin-bottom: @baseline / 1.5;
+	.font-size(24);
+	line-height: 1.3;
+}
+
+h4 {
+	margin-bottom: @baseline / 1.5;
+	.font-size(18);
+	line-height: 1.25;
+}
+
+h5 {
+	margin-bottom: @baseline;
+	.font-size(16);
+}
+
+h6 {
+	margin-bottom: @baseline;
+	.font-size(16);
+}
+
+// 3. TYPOGRAPHY (320 and Up typography defaults) =============================================================================
+
+p,
+ol,
+ul,
+dl,
+address {
+	.font-size(14);
+	margin-bottom: @baseline;
+}
+
+p {
+	hyphens: none;
+	text-align: justify;
+	line-height: @baseline;
+	.text-shadow-white(0, 1px, 0, 1.0);
+}
+
+ul,
+ol {
+	margin: @baseline;
+	padding: 0 0 0 @baseline;
+	
+}
+
+ul li,
+ol li {
+	line-height: @baseline;
+	padding-bottom: @baseline/2.5;
+}
+
+dl,
+dd {
+	margin-bottom: @baseline;
+}
+
+dt {
+	font-weight: normal;
+}
+
+blockquote  {
+	.serif;
+	.font-size(16);
+	position: relative;
+	margin: @baseline;
+	line-height: @baseline;
+	font-style: italic;
+	color: @grey;
+}
+
+blockquote:before,
+q:before {
+	display: inline-block;
+	position: absolute;
+	content: '“';
+	.font-size(42);
+	color: @lightgrey;
+	margin-top: @baseline/6;
+	margin-left: -@baseline/2.25;
+}
+
+blockquote:after,
+q:after {
+	content: none;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+
+hr {
+	display: block;
+	margin: @baseline 0;
+	padding: 0;
+	height: 0;
+	border: 0;
+	border-top: 1px solid @lightgrey;
+	border-bottom: 1px solid @white;
+}
+
+ins {
+	background-color: lighten(@basecol, 20%);
+	color: @black;
+	text-decoration: none;
+}
+
+mark {
+	background-color: lighten(@basecol, 20%);
+	color: @black;
+	font-style: italic;
+	font-weight: bold;
+}
+
+pre,
+code,
+kbd,
+samp {
+	.monospace;
+	.font-size(14);
+	line-height: @baseline;
+}
+
+pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+q {
+	quotes: none;
+}
+
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+
+small {
+	.font-size(14);
+}
+
+sub, sup {
+	.font-size(12);
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -.5em;
+}
+
+sub {
+	bottom: -.25em;
+}
+
+em {
+	font-style: italic;
+}
+
+// 4.LINKS =============================================================================
+
+a {
+	color: @linkcol;
+}
+
+a:visited {
+	color: @linkcolvisited;
+}
+
+a:hover {
+	color: @linkcolhover;
+}
+
+a:focus {
+	outline: thin dotted;
+	color: @linkcolfocus;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+// 5.FIGURES & IMAGES =============================================================================
+
+figure {
+	margin-bottom: @baseline;
+}
+
+figure img,
+figure object,
+figure embed {
+	margin-bottom: @baseline / 2;
+	max-width: 100%;
+}
+
+figcaption {
+	display: block;
+	font-weight: normal;
+}
+
+img {
+	border: 0;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+// 6.TABLES =============================================================================
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin-bottom: @baseline;
+	width: 100%;
+	.font-size(14);
+}
+
+th, td, caption {
+	padding: @baseline / 8 10px @baseline / 8 5px;
+}
+
+tfoot {
+	font-style: italic;
+}
+
+caption {
+	background-color: transparent;
+}
+
+tbody tr:nth-child(odd) td {
+	background-color: lighten(@basecol, 20%);
+}
+
+// 7.FORMS =============================================================================
+
+form {
+	margin: 0;
+	padding: @baseline;
+	background-color: @white;
+	.rounded();
+	.bordered(#ddd, #ddd, #ddd, #ddd);
+	.drop-shadow-white(0, 1px, 0, 1.0)
+}
+
+fieldset {
+	margin-bottom: @baseline/2;
+	padding: 0;
+	border-width: 0;
+}
+
+legend {
+	*margin-left: -7px;
+	padding: 0;
+	border-width: 0;
+}
+
+label {
+	.font-size(14);
+	font-weight: normal;
+	cursor: pointer;
+	display: block;
+	margin-bottom: 5px;
+	padding: 0 !important;
+}
+	label.left,
+	label.right {
+		float: none;
+	}
+
+button,
+input,
+select,
+textarea {
+	.font-size(12);
+	margin: 0;
+	vertical-align: baseline;
+	*vertical-align: middle;
+}
+
+button, input {
+	line-height: normal;
+	*overflow: visible;
+	padding: 6px;
+}
+
+input[type="text"],
+input[type="password"], 
+textarea {
+	.box-sizing();
+	width: 100%;
+	color: @grey;
+	background-color: @white;
+	.rounded();
+	.bordered(#ddd, #ddd, #ddd, #ddd);
+	.inset-shadow(0, 2px, 4px, 0, 0.1);
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	cursor: pointer;
+	.rounded();
+	.bordered(#08d, #08d, #08d, #08d);
+	.grad-col(@basecol, #09e, #0bf);
+	.inset-shadow-white(0, 1px, 0, 0, 0.35);
+	.sans-serif;
+	color: @white;
+	font-weight: bold;
+	.text-shadow(0, -1px, 0, 0.35);
+	.drop-shadow(0, 1px, 2px, 0.35);
+	margin-bottom: 0;
+}
+	button:hover,
+	input[type="button"]:hover,
+	input[type="reset"]:hover,
+	input[type="submit"]:hover {
+		.grad-col(@basecol, #07d, #0bf);
+	}
+/* .button class for link buttons */
+.button {
+	display: inline-block;
+	cursor: pointer;
+	.rounded();
+	.bordered(#08d, #08d, #08d, #08d);
+	.grad-col(@basecol, #09e, #0bf);
+	.inset-shadow-white(0, 1px, 0, 0, 0.35);
+	.sans-serif;
+	color: @white !important;
+	font-weight: bold;
+	text-decoration: none !important;
+	.text-shadow(0, -1px, 0, 0.35);
+	.drop-shadow(0, 1px, 2px, 0.35);
+	margin-bottom: 0;
+	padding: 10px;
+}
+	.button:hover {
+		color: @white;
+		.grad-col(@basecol, #07d, #0bf);
+	}
+
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box;
+}
+
+input[type="search"] {
+	box-sizing: content-box;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+textarea {
+	overflow: auto;
+	vertical-align: top;
+}
+
+.middleColumn {
+	margin-bottom: @baseline/2;
+}
+
+#Remember,
+#ForgotPassword {
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+
+/* SilverStripe search */
+
+#search-wrapper {
+	position: absolute;
+	right: 0;
+	bottom: 5px;
+	overflow: hidden;
+	padding: 7px;
+	background-color: @white;
+	.drop-shadow(0, 0, 5px, 0.15);
+	.rounded();
+}
+	#SearchForm_SearchForm {
+		margin-left: 25px;
+		padding: 0;
+		background-color: transparent;
+		.rounded(0);
+		border-style: none;
+		.drop-shadow-white(0,0,0,0)
+	}
+		#SearchForm_SearchForm fieldset {
+			margin: 0;
+		}
+			#SearchForm_SearchForm #Search {
+				display: inline-block;
+			}
+				#SearchForm_SearchForm .middleColumn {
+					margin: 0;
+				}
+					#SearchForm_SearchForm #SearchForm_SearchForm_Search {}
+					#SearchForm_SearchForm #SearchForm_SearchForm_Search:focus {}
+			#SearchForm_SearchForm #SearchForm_SearchForm_action_results {
+				margin-bottom: 0;
+			}
+#search-toggle {
+	float: left;
+	display: block;
+	width: 18px;
+	height: 29px;
+	background: url(../img/icon-search.png) no-repeat center center;
+	cursor: pointer;
+	cursor: hand;
+}
+
+
+
+// 8 BANNER 		=============================================================================
+
+#header {
+	background: url(../img/bg-header.png) repeat-x left bottom;
+	padding: 30px 0 20px;
+}
+	#inner-header {
+		position: relative;
+		width: 90%;
+		max-width: 940px;
+		margin: 0 auto;
+	}
+		#inner-header:before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 10px;
+			position: absolute;
+			top: -35px;
+			background-color: @basecol;
+			.rounded();
+			.inset-shadow(0, 0, 5px, 0, 0.25);
+		}
+			#inner-header h1 {
+				.font-size(24);
+				margin-bottom: @baseline / 10;
+				.text-shadow-white(0,0,0,0);
+			}
+				#inner-header h1 a {
+					color: @black;
+					text-decoration: none;
+				}
+			#inner-header p {
+				.serif();
+				.font-size(16);
+				color: @grey;
+				margin: 0;
+			}
+
+// 9 NAVIGATION 	=============================================================================
+
+#navigation {
+	position: relative;
+	width: 90%;
+	max-width: 940px;
+	margin: @baseline auto 0;
+}
+	#navigation ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+		#navigation ul li {
+			.font-size(16);
+			font-weight: normal;
+			font-style: normal;
+			line-height: inherit;
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 0;
+		}
+			#navigation ul li:first-child {
+				border-top: 1px solid #ddd;
+			}
+			#navigation ul li:last-child {
+				border-bottom: none;
+			}
+			#navigation ul li a {
+				display: block;
+				color: @grey;
+				text-decoration: none;
+				padding: 8px 0;
+			}
+				#navigation ul li a.parent {
+					background: url(../img/icon-arrow-menu-parent.gif) no-repeat right center;
+				}
+					#navigation ul li a.parent:hover {
+						background: url(../img/icon-arrow-menu-parent-hover.gif) no-repeat right center;
+					}
+				#navigation ul li a:hover {
+					color: @black;
+				}
+				#navigation ul li a.current {
+					color: @basecol;
+					font-weight: bold;
+				}
+				
+				/* Sub menus */
+				
+				#navigation ul li ul {}
+					#navigation ul li ul li {
+						.font-size(14);
+						border: none;
+					}
+						#navigation ul li ul li:first-child {
+							border-top: 1px solid #ddd;
+							border-bottom: none;
+							background: url(../img/bg-sub-nav-top.gif) repeat-x left top;
+							padding-top: 8px;
+						}
+						#navigation ul li ul li:last-child {
+							border-bottom: none;
+							background: url(../img/bg-sub-nav-btm.gif) repeat-x left bottom;
+							padding-bottom: 8px;
+						}
+							#navigation ul li ul li ul li {
+								.font-size(14);
+							}
+							#navigation ul li ul li ul li:last-child {
+								border-bottom: 1px solid #ddd;
+							}
+							#navigation ul li ul li a {
+								padding-left: @baseline/2;
+							}
+								#navigation ul li ul li ul li a {
+									padding-left: @baseline;
+								}
+
+// 10 CONTENT 		=============================================================================
+
+#content {
+	width: 90%;
+	max-width: 940px;
+	margin: @baseline auto @baseline*2 auto;
+}
+
+	#main {}
+	
+	/* Breadcrumbs */
+	
+	#Breadcrumbs {
+		margin-bottom: @baseline;
+		border-bottom: 1px solid #ddd;
+		.drop-shadow-white(0, 1px, 0, 1.0);
+	}
+		#Breadcrumbs p {
+			margin: 0;
+			padding-bottom: @baseline;
+		}
+	
+	/* Headings */
+	
+	h2.page-title {}
+	
+	/* Images */
+	
+	.post-content img {
+		width: 100% !important;
+		max-width: 252px;
+		height: auto;
+		margin-bottom: @baseline;
+		padding-bottom: @baseline/2;
+	}
+	
+	.left {
+		float: none;
+	}
+	.right {
+		float: none;
+	}
+	
+	.captionImage {
+		width: 100% !important;
+		max-width: 252px;
+	}
+		.captionImage img {
+			margin-bottom: 0;
+		}
+	
+	p.caption {
+		margin-bottom: @baseline;
+		font-style: italic;
+		color: @grey;
+	}
+	
+	/* Footer */
+	
+	#footer {
+		padding-top: @baseline*1.5;
+		background: url(../img/bg-footer.png) repeat-x left top;
+	}
+		#inner-footer {
+			width: 90%;
+			max-width: 940px;
+			margin: 0 auto;
+		}
+			#inner-footer p {
+				.text-shadow-white(0,0,0,0);
+			}
+				#inner-footer p a {}
+
+/* Blog */
+
+.blogSummary {
+	border-bottom: 1px solid #ddd;
+	.drop-shadow-white(0, 1px, 0, 1.0);
+	padding-bottom: @baseline/2;
+	margin-bottom: @baseline;
+}
+	.blogSummary:last-child {
+		border-bottom: none;
+		.drop-shadow-white(0, 0, 0, 0);
+		padding-bottom: 0;
+	}
+
+	.blogSummary img,
+	.blogEntry img {
+		max-width: 100%;
+		height: auto;
+	}
+	.blogSummary .left,
+	.blogSummary .right {
+		float: none;
+	}
+
+#BlogContent {
+	margin-right: 0;
+}
+
+	.postTitle a {
+		color: @black;
+		text-decoration: none;
+	}
+	
+	.authorDate {
+		color: @grey + 25;
+		font-style: italic;
+		margin-bottom: @baseline/2;
+	}
+
+	.tags a {
+		.font-size(12);
+		color: @white;
+		text-decoration: none;
+		.text-shadow-white(0,0,0,0);
+		background-color: @lightgrey;
+		.rounded();
+		padding: 3px 5px;
+		.drop-shadow-white(0, 1px, 0, 1.0);
+	}
+		.tags a:hover {
+			background-color: @lightgrey - 15;
+		}
+	
+	.blogVitals,
+	#CommentsRSSFeed {
+		color: @lightgrey;
+		background-color: @white;
+		border: 1px solid #ddd;
+		.rounded();
+		.drop-shadow-white(0, 1px,0, 1.0);
+		margin-bottom: @baseline;
+		padding: @baseline/1.5;
+	}
+	
+	/* Comments */
+	
+	#PageCommentInterface_Form_PostCommentForm {
+		margin-bottom: @baseline;
+	}
+	
+	.actionLinks {
+		margin-right: 0;
+		margin-left: 0;
+		padding: 0;
+		list-style: none;
+	}
+		.actionLinks li {
+			padding: 0;
+		}
+		.actionLinks a {
+			.text-shadow-white(0, 1px, 0, 1.0)
+		}
+	
+	#PageComments {
+		list-style: none;
+		margin-right: 0;
+		margin-left: 0;
+		padding-left: 0;
+	}
+		#PageComments li {
+			padding-bottom: 0;
+		}
+	
+	/* Speech bubble */
+	
+	.comment {
+		position: relative;
+		background-color: @white;
+		border: 1px solid #ddd;
+		.rounded(10px);
+		.drop-shadow-white(0, 1px,0, 1.0);
+		margin-bottom: @baseline;
+		padding: @baseline/1.5;
+	}
+		.comment:after {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: -9px;
+			left: 20px;
+			width: 15px;
+			height: 15px;
+			border-bottom: 1px solid #ddd;
+			border-left: 1px solid #ddd;
+			background-color: @white;
+			.drop-shadow-white(-2px, 2px, 0, 1.0);
+			.rotate(-45deg);
+			
+		}
+	
+	/* Link icons */
+	
+	.comments,
+	.readmore,
+	.readMoreLink,
+	.commentrss,
+	.spamlink,
+	.deletelink,
+	#editpost,
+	#unpublishpost,
+	#DeleteComments a,
+	.prev {
+		padding-left: 22px;
+	}
+	.next {
+		padding-right: 22px;
+	}
+	.commentrss:hover,
+	.spamlink:hover,
+	.deletelink:hover,
+	#editpost:hover,
+	#unpublishpost:hover,
+	#DeleteComments:hover {
+		color: @black;
+	}
+	.comments {
+		background: url(../img/icon-comments.png) no-repeat left center;
+	}
+	.readmore,
+	.readMoreLink {
+		background: url(../img/icon-read-more.png) no-repeat left center;
+	}
+	.commentrss {
+		color: #ff8800;
+		background: url(../img/icon-rss.png) no-repeat left center;
+	}
+	.spamlink {
+		color: #ffcc00;
+		background: url(../img/icon-spam.png) no-repeat left center;
+	}
+	.deletelink,
+	#DeleteComments a {
+		color: #ff0000;
+		background: url(../img/icon-delete.png) no-repeat left center;
+	}
+	#editpost {
+		color: #009900;
+		background: url(../img/icon-edit.png) no-repeat left center;
+	}
+	#unpublishpost {
+		color: @black;
+		background: url(../img/icon-unpublish.png) no-repeat left center;
+	}
+	.prev {
+		background: url(../img/icon-previous.png) no-repeat left center;
+	}
+	.next {
+		background: url(../img/icon-next.png) no-repeat right center;
+	}
+
+/* Search results */
+
+#SearchResults {
+	list-style: none;
+	padding-left: 0;
+	margin: @baseline 0;
+}
+	#SearchResults li {
+		border-bottom: 1px solid #ddd;
+		.drop-shadow-white(0, 1px, 0, 1.0);
+		padding-bottom: @baseline;
+		margin-bottom: @baseline;
+	}
+		#SearchResults li:last-child {
+			border-bottom: none;
+			.drop-shadow-white(0, 0, 0, 0);
+			padding-bottom: 0;
+			margin-bottom: @baseline*1.5;
+		}
+		#SearchResults h3 {
+			margin-bottom: @baseline/4;
+		}
+		#SearchResults p {
+			margin-bottom: @baseline/2;
+		}
+			#SearchResults h3 a {
+				color: @black;
+				text-decoration: none;
+			}
+
+#PageNumbers {
+	.font-size(14);
+	color: @lightgrey;
+	position: relative;
+	background-color: @white;
+	border: 1px solid #ddd;
+	.rounded(10px);
+	.drop-shadow-white(0, 1px,0, 1.0);
+	margin-bottom: @baseline;
+	padding: @baseline/1.5;
+}
+
+/* Front end editor */
+
+.mceToolbar,
+.mceToolbar td {
+	background-color: @white !important;
+}
+#tagsnote {
+	.font-size(12);
+	color: @grey;
+	line-height: @baseline/1.25;
+}
+
+// 11 MAIN 			=============================================================================
+// 12 COMPLEMENTARY =============================================================================
+
+#Sidebar {
+	display: none;
+}
+
+// 13 CONTENTINFO 	=============================================================================
+// 14 GLOBAL OBJECTS =============================================================================
+
+/* System messages */
+
+.message {
+	.font-size(13);
+	font-weight: bold;
+	line-height: inherit;
+	padding: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	.rounded(5px);
+	.text-shadow-white(0,0,0,0);
+	margin-top: 10px;
+	margin-right: 8px;
+}
+	#PageCommentInterface_Form_PostCommentForm_error,
+	.required {
+		color: @white;
+		background-color: #ff0000;
+	}
+	#PageCommentInterface_Form_PostCommentForm_error {
+		margin-top: 0;
+	}
+
+// 15 VENDOR-SPECIFIC =============================================================================
+
+html {
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: lighten(@basecol, 20%);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+::-webkit-selection {
+	background: @lightergrey;
+	color: rgb(250,250,250);
+	text-shadow: none;
+}
+
+::-moz-selection {
+	background: @basecol;
+	color: @compcol;
+	text-shadow: none;
+}
+
+::selection {
+	background: @basecol;
+	color: @compcol;
+	text-shadow: none;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+}
+
+::-webkit-input-placeholder {
+	.font-size(14);
+}
+
+input:-moz-placeholder {
+	.font-size(14);
+}
+
+.ie7 img,
+.iem7 img {
+	-ms-interpolation-mode: bicubic;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box;
+}
+
+input[type="search"] {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+p {
+	// http://www.w3.org/TR/css3-text/#hyphenation
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-character: "\2010";
+	-webkit-hyphenate-limit-after: 1;
+	-webkit-hyphenate-limit-before: 3;
+	-moz-hyphens: auto;
+}
+
+// Non-semantic helper classes
+
+.ir {
+	display: block;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	text-align: left;
+	text-indent: -999em;
+	direction: ltr;
+}
+
+.ir br {
+	display: none;
+}
+
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+
+.visuallyhidden {
+	position: absolute;
+	margin: -1px;
+	padding: 0;
+	height : 1px;
+	width: 1px;
+	overflow: hidden;
+	border: 0;
+	clip: rect(0 0 0 0);
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+	position: static;
+	margin: 0;
+	height: auto;
+	width: auto;
+	overflow: visible;
+	clip: auto;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+// 16 MODERNIZR =============================================================================
+
+// audio
+// applicationcache
+// backgroundsize
+// borderimage
+// borderradius
+// boxshadow
+// canvas
+// canvastext
+// cssanimations
+// csscolumns
+// cssgradients
+// cssreflections
+// csstransforms
+// csstransforms3d
+// csstransitions
+// draganddrop
+// flexbox
+// fontface
+// geolocation
+// hashchange
+// history
+// hsla
+// indexeddb
+// inlinesvg
+// localstorage
+// multiplebgs
+// opacity
+// postmessage
+// rgba
+// sessionstorage
+// smil
+// svg
+// svgclippaths
+// textshadow
+// touch
+// video
+// webgl
+// websqldatabase
+// websockets
+// webworkers
+
+// 17 TEMPLATE SPECIFICS =============================================================================
+
+// 18 MEDIA QUERIES =============================================================================
+
+@media print {
+
+// 1 ROOT =============================================================================
+
+* {
+	background: transparent !important;
+	color: black !important;
+	text-shadow: none !important;
+	filter: none !important;
+	-ms-filter: none !important;
+}
+
+@page {
+	margin: 0.5cm;
+}
+
+body {
+	color: @white;
+	background-image: none;
+}
+
+// 2 HEADINGS =============================================================================
+
+h2, h3 {
+	orphans: 3;
+	widows: 3;
+	page-break-after: avoid;
+}
+
+// 3 TYPOGRAPHY =============================================================================
+
+p {
+	orphans: 3;
+	widows: 3;
+}
+
+pre, blockquote {
+	border: 1px solid @grey;
+	page-break-inside: avoid;
+}
+
+abbr[title]:after {
+	content: " (" attr(title) ")";
+}
+
+// 4 LINKS =============================================================================
+
+a, a:visited {
+	color: @black !important;
+	text-decoration: underline;
+}
+
+a[href]:after {
+	content: " (" attr(href) ")";
+}
+
+a[href^="javascript:"]:after, 
+a[href^="#"]:after {
+	content: "";
+}
+
+// 5 FIGURES & IMAGES =============================================================================
+
+img {
+	max-width: 100% !important;
+	page-break-inside: avoid;
+}
+
+// 6 TABLES =============================================================================
+
+thead {
+	display: table-header-group;
+}
+
+tr {
+	page-break-inside: avoid;
+}
+
+// 7 FORMS =============================================================================
+
+#search-wrapper {
+	display: none;
+}
+
+// 8 BANNER =============================================================================
+
+#header {
+	background-image: none;
+}
+	#inner-header:before {
+		display: none;
+	}
+
+// 9 NAVIGATION =============================================================================
+
+#navigation {
+	display: none;
+}
+
+// 10 CONTENT =============================================================================
+
+#BlogContent {
+	margin-right: 0;
+}
+
+#footer {
+	background-image: none;
+}
+
+// 11 MAIN =============================================================================
+// 12 COMPLEMENTARY =============================================================================
+
+#Sidebar {
+	display: none;
+}
+
+// 13 CONTENTINFO =============================================================================
+// 14 GLOBAL OBJECTS =============================================================================
+
+.ir a:after {
+	content: "";
+}
+
+// 15 VENDOR-SPECIFIC =============================================================================
+// 16 MODERNIZR =============================================================================
+// 17 TEMPLATE SPECIFICS =============================================================================
+
+}
+
+// 480px
+@media only screen and (min-width: 480px) {
+
+// 1 ROOT 					=============================================================================
+// 2 HEADINGS 				=============================================================================
+// 3 TYPOGRAPHY 			=============================================================================
+// 4 LINKS 					=============================================================================
+// 5 FIGURES & IMAGES 		=============================================================================
+// 6 TABLES 				=============================================================================
+// 7 FORMS 					=============================================================================
+// 8 BANNER 				=============================================================================
+// 9 NAVIGATION				=============================================================================
+// 10 CONTENT 				=============================================================================
+
+/* Images */
+
+.post-content img,
+.captionImage {
+	width: 100% !important;
+	max-width: 432px;
+}
+
+// 11 MAIN 					=============================================================================
+// 12 COMPLEMENTARY 		=============================================================================
+// 13 CONTENTINFO 			=============================================================================
+// 14 GLOBAL OBJECTS 		=============================================================================
+// 15 VENDOR-SPECIFIC 		=============================================================================
+// 16 MODERNIZR 			=============================================================================
+// 17 TEMPLATE SPECIFICS 	=============================================================================
+
+}
+
+// 600px
+@media only screen and (min-width: 600px) {
+
+// 1 ROOT 					=============================================================================
+// 2 HEADINGS 				=============================================================================
+// 3 TYPOGRAPHY 			=============================================================================
+// 4 LINKS 					=============================================================================
+// 5 FIGURES & IMAGES 		=============================================================================
+// 6 TABLES 				=============================================================================
+// 7 FORMS 					=============================================================================
+
+/* SilverStripe search */
+
+#search-wrapper {
+	bottom: -5px;
+	.drop-shadow(0,0,0,0);
+}
+
+// 8 BANNER 				=============================================================================
+
+#inner-header h1 {
+	.font-size(30);
+}
+
+// 9 NAVIGATION				=============================================================================
+
+#navigation {
+	position: relative;
+	width: 90%;
+	margin: @baseline auto 0;
+}
+
+	#navigation ul.level-one {
+		height: 40px;
+	}
+	#navigation ul.level-two {
+		height: 80px;
+	}
+	#navigation ul.level-three {
+		height: 120px;
+	}
+
+	#navigation ul {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+		#navigation ul li {
+			float: left;
+			.font-size(16);
+			padding: 0;
+			border-bottom: none;
+		}
+			#navigation ul li:first-child {
+				border-top: none;
+			}
+			#navigation ul li a {
+				display: block;
+				height: 40px;
+				line-height: 40px;
+				color: @grey;
+				text-decoration: none;
+				margin-right: 40px;
+				padding: 0;
+			}
+				#navigation ul li a:hover {
+					color: @black;
+				}
+				#navigation ul li a.current {
+					color: @basecol;
+					font-weight: bold;
+				}
+				#navigation ul li a.parent {
+					background: url(../img/icon-arrow-menu-parent.gif) no-repeat right center;
+					padding-right: 15px;
+				}
+					#navigation ul li a.parent:hover {
+						background: url(../img/icon-arrow-menu-parent-hover.gif) no-repeat right center;
+					}
+				
+				// Sub menus
+				#navigation ul li ul {
+					position: absolute;
+					left: 0;
+					background: url(../img/bg-sub-nav-top.gif) repeat-x left top;
+				}
+					#navigation ul li ul li {
+						.font-size(14);
+					}
+						#navigation ul li ul li:first-child {
+							border-top: none;
+							background-image: none;
+							padding-top: 0;
+						}
+						#navigation ul li ul li:last-child {
+							background-image: none;
+							padding-bottom: 0;
+						}
+						#navigation ul li ul li a {}
+							#navigation ul li ul li a:hover {}
+								#navigation ul li ul li ul li {
+									.font-size(14);
+								}
+								#navigation ul li ul li ul li:last-child {
+									border-bottom: none;
+								}
+								#navigation ul li ul li a {
+									padding-left: 0;
+								}
+									#navigation ul li ul li ul li a {
+										padding-left: 0;
+									}
+
+// 10 CONTENT 				=============================================================================
+
+/* Images */
+
+.post-content img {
+	width: auto !important;
+	max-width: 540px;
+}
+
+.left {
+	float: left;
+	padding-right: @baseline*2;
+}
+.right {
+	float: right;
+	padding-left: @baseline*2;
+}
+
+.captionImage {
+	width: 100% !important;
+}
+	.captionImage.left {
+		padding-right: 0;
+		margin-right: @baseline*2;
+	}
+	.captionImage.right {
+		padding-left: 0;
+		margin-left: @baseline*2;
+	}
+
+/* Blog */
+
+#BlogContent {
+	margin-right: 240px;
+}
+
+/* Sidebar */
+
+.WidgetHolder {
+	background-color: @white;
+	border: 1px solid #ddd;
+	.rounded();
+	.drop-shadow-white(0, 1px,0, 1.0);
+	margin-bottom: @baseline;
+	padding: @baseline/1.5;
+}
+	.WidgetHolder h3 {
+		margin-bottom: @baseline/3;
+	}
+	.WidgetHolder ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+		.WidgetHolder ul li {
+			margin-bottom: 5px;
+			padding-bottom: 0;
+		}
+			.WidgetHolder ul li:last-child {
+				margin-bottom: 0;
+			}
+
+	/* Tag cloud */
+	
+	.tagcloud {
+		line-height: @baseline*1.2;
+		margin-bottom: 0;
+	}
+		.tagcloud a {
+			display: inline-block;
+			.font-size(12);
+			color: @white;
+			text-decoration: none;
+			.text-shadow-white(0,0,0,0);
+			background-color: @basecol;
+			.rounded();
+			padding: 3px 5px;
+		}
+			.tagcloud a:hover {
+				background-color: @basecol - 15;
+			}
+		.tagcloud .not-popular { .font-size(10); }
+		.tagcloud .not-very-popular { .font-size(10); }
+		.tagcloud .somewhat-popular { .font-size(10); }
+		.tagcloud .popular { .font-size(12); }
+		.tagcloud .very-popular { .font-size(16); }
+		.tagcloud .ultra-popular { .font-size(20); }
+	
+	/* Browse by date */
+	
+	.archiveMonths {}
+		.archiveMonths li {}
+			.archiveMonths li:last-child {}
+			.archiveMonths li a {
+				padding-left: 22px;
+				background: url(../img/icon-calendar.png) no-repeat left center;
+			}
+			
+	/* Blog management */
+	
+	.BlogManagementWidget {}
+		.BlogManagementWidget ul {}
+			.BlogManagementWidget ul li {}
+				.BlogManagementWidget ul li:last-child {}
+		
+
+// 11 MAIN 					=============================================================================
+// 12 COMPLEMENTARY 		=============================================================================
+
+#Sidebar {
+	display: inline-block;
+	float: right;
+	width: 200px;
+}
+
+// 13 CONTENTINFO 			=============================================================================
+// 14 GLOBAL OBJECTS 		=============================================================================
+// 15 VENDOR-SPECIFIC 		=============================================================================
+// 16 MODERNIZR 			=============================================================================
+// 17 TEMPLATE SPECIFICS 	=============================================================================
+
+}
+
+// 768px
+@media only screen and (min-width: 768px) {
+
+// 1 ROOT 					=============================================================================
+// 2 HEADINGS 				=============================================================================
+// 3 TYPOGRAPHY 			=============================================================================
+// 4 LINKS 					=============================================================================
+// 5 FIGURES & IMAGES 		=============================================================================
+// 6 TABLES 				=============================================================================
+// 7 FORMS 					=============================================================================
+// 8 BANNER 				=============================================================================
+// 9 NAVIGATION				=============================================================================
+// 10 CONTENT 				=============================================================================
+
+/* Images */
+
+.post-content img {
+	max-width: 691px;
+	width: auto% !important;
+}
+
+.captionImage {
+	width: 100% !important;
+}
+	.captionImage.left {
+		padding-right: 0;
+		margin-right: @baseline*2;
+	}
+	.captionImage.right {
+		padding-left: 0;
+		margin-left: @baseline*2;
+	}
+
+/* Blog */
+
+#BlogContent {
+	margin-right: 360px;
+}
+
+// 11 MAIN 					=============================================================================
+// 12 COMPLEMENTARY 		=============================================================================
+
+#Sidebar {
+	display: inline-block;
+	float: right;
+	width: 300px;
+}
+
+// 13 CONTENTINFO 			=============================================================================
+// 14 GLOBAL OBJECTS 		=============================================================================
+// 15 VENDOR-SPECIFIC 		=============================================================================
+// 16 MODERNIZR 			=============================================================================
+// 17 TEMPLATE SPECIFICS 	=============================================================================
+
+}
+
+// 992px
+@media only screen and (min-width: 992px) {
+
+// 1 ROOT 					=============================================================================
+// 2 HEADINGS 				=============================================================================
+// 3 TYPOGRAPHY 			=============================================================================
+// 4 LINKS 					=============================================================================
+// 5 FIGURES & IMAGES 		=============================================================================
+// 6 TABLES 				=============================================================================
+// 7 FORMS 					=============================================================================
+// 8 BANNER 				=============================================================================
+// 9 NAVIGATION				=============================================================================
+// 10 CONTENT 				=============================================================================
+
+/* Images */
+
+.post-content img {
+	width: auto !important;
+	max-width: 940px;
+}
+
+.captionImage {
+	width: 100% !important;
+}
+	.captionImage.left {
+		padding-right: @baseline*2;
+		margin-right: @baseline*2;
+	}
+	.captionImage.right {
+		padding-left: @baseline*2;
+		margin-left: @baseline*2;
+	}
+
+// 11 MAIN 					=============================================================================
+// 12 COMPLEMENTARY 		=============================================================================
+// 13 CONTENTINFO 			=============================================================================
+// 14 GLOBAL OBJECTS 		=============================================================================
+// 15 VENDOR-SPECIFIC 		=============================================================================
+// 16 MODERNIZR 			=============================================================================
+// 17 TEMPLATE SPECIFICS 	=============================================================================
+
+}
+
+// 1382px
+@media only screen and (min-width: 1382px) {
+
+// 1 ROOT 					=============================================================================
+// 2 HEADINGS 				=============================================================================
+// 3 TYPOGRAPHY 			=============================================================================
+// 4 LINKS 					=============================================================================
+// 5 FIGURES & IMAGES 		=============================================================================
+// 6 TABLES 				=============================================================================
+// 7 FORMS 					=============================================================================
+// 8 BANNER 				=============================================================================
+// 9 NAVIGATION				=============================================================================
+// 10 CONTENT 				=============================================================================
+
+.post-content img {
+	width: auto !important;
+	max-width: 940px;
+}
+
+.captionImage {
+	width: 100% !important;
+}
+	.captionImage.left {
+		padding-right: @baseline*2;
+		margin-right: @baseline*2;
+	}
+	.captionImage.right {
+		padding-left: @baseline*2;
+		margin-left: @baseline*2;
+	}
+
+// 11 MAIN 					=============================================================================
+// 12 COMPLEMENTARY 		=============================================================================
+// 13 CONTENTINFO 			=============================================================================
+// 14 GLOBAL OBJECTS 		=============================================================================
+// 15 VENDOR-SPECIFIC 		=============================================================================
+// 16 MODERNIZR 			=============================================================================
+// 17 TEMPLATE SPECIFICS 	=============================================================================
+
+}
+
+// 2x
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+
+// 1 ROOT 					=============================================================================
+// 2 HEADINGS 				=============================================================================
+// 3 TYPOGRAPHY 			=============================================================================
+// 4 LINKS 					=============================================================================
+// 5 FIGURES & IMAGES 		=============================================================================
+// 6 TABLES 				=============================================================================
+// 7 FORMS 					=============================================================================
+// 8 BANNER 				=============================================================================
+// 9 NAVIGATION				=============================================================================
+// 10 CONTENT 				=============================================================================
+// 11 MAIN 					=============================================================================
+// 12 COMPLEMENTARY 		=============================================================================
+// 13 CONTENTINFO 			=============================================================================
+// 14 GLOBAL OBJECTS 		=============================================================================
+// 15 VENDOR-SPECIFIC 		=============================================================================
+// 16 MODERNIZR 			=============================================================================
+// 17 TEMPLATE SPECIFICS 	=============================================================================
+
+}
