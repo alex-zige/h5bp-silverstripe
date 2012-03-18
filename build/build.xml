@@ -621,9 +621,9 @@
         </replaceregexp>
         <!--[! use comments like this one to avoid having them get minified -->
 
-        <echo message="Updating the HTML with the new css filename: ${style.css}"/>
+        <echo message="Updating the HTML with the new css filename: $themeDir/${style.css}"/>
 
-        <replaceregexp match="&lt;!-- CSS concatenated [\d\w\s\W]*?!-- end CSS--&gt;" replace="&lt;link rel='stylesheet' href='${style.css}'&gt;" flags="m">
+        <replaceregexp match="&lt;!-- CSS concatenated [\d\w\s\W]*?!-- end CSS--&gt;" replace="&lt;link rel='stylesheet' href='$themeDir/${style.css}'&gt;" flags="m">
             <fileset dir="${dir.intermediate}" includes="${page-files}"/>
         </replaceregexp>
 
@@ -716,7 +716,7 @@
             <arg line="--preserve-ssi"/>
             <srcfile/>
             <arg value="-o"/>
-            <mapper type="glob" from="*" to="../${dir.publish}/*"/>
+            <mapper type="glob" from="*" to="/*"/>
             <targetfile/>
         </apply>
     </target>
