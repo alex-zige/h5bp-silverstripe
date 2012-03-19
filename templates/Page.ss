@@ -23,8 +23,9 @@
   <link rel="shortcut icon" href="/favicon.ico" />
 		
   	<!-- CSS concatenated and minified via ant build script-->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="$themedir/css/style.css">
   	<!-- end CSS-->
+
 		
 
   <script src="$themedir/js/libs/modernizr-2.0.6.min.js"></script>
